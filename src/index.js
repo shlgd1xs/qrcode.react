@@ -142,6 +142,10 @@ class QRCodeCanvas extends React.Component<QRProps> {
             );
         });
       });
+      
+      if(this.props.onUpdate&&typeof this.props.onUpdate==='function'){
+          this.props.onUpdate(canvas);
+      }
     }
   }
 
@@ -153,6 +157,7 @@ class QRCodeCanvas extends React.Component<QRProps> {
       bgColor,
       fgColor,
       style,
+      onUpdate,
       ...otherProps
     } = this.props;
     const canvasStyle = {height: size, width: size, ...style};
